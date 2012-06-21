@@ -36,12 +36,7 @@ Func _HashPassword($inPwd, $inSalt = "")
 		Return -1
 	EndIf
 
-	$sHash = _Crypt_HashData($sPassword & $sSalt, $hAlg)
-	If $sHash = -1 Then
-		Return -1
-	Else
-		$sHash = StringMid($sHash, 3)
-	EndIf
+	$sHash = $sPassword & $sSalt
 	For $i = 1 To 256
 		$sHash = _Crypt_HashData($sHash, $hAlg)
 		If $sHash = -1 Then
@@ -73,9 +68,8 @@ Func _CheckPassword($inPwd, $inHash)
 	Local $sHash, $sSalt
 	Local $sPassword = StringStripWS($inPwd, 1 + 2)
 	Local $aHash = StringSplit($inHash, "$")
-	If Not IsArray($aHash) Or $aHash[0] <> 2 Then
-		Return False
-	EndIf
+	If Not IsArray($aHash) Then Return False
+	If $aHash[0] <> 2 Then Return False
 	$sHash = $aHash[1]
 	$sSalt = $aHash[2]
 	If $inPwd = "" Or $inHash = "" Then
