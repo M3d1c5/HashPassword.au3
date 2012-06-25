@@ -66,10 +66,8 @@ EndFunc   ;==>_HashPassword
 ;===============================================================================
 Func _CheckPassword($inPwd, $inHash)
 	Local $sHash, $sSalt
-	Local $sPassword = StringStripWS($inPwd, 1 + 2)
 	Local $aHash = StringSplit($inHash, "$")
 
-	If $sPassword = "" Then Return False
 	If Not IsArray($aHash) Then Return False
 	If $aHash[0] <> 2 Then Return False
 
