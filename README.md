@@ -25,10 +25,8 @@ Usage
 How it works
 ------------
 
-A random string (the salt) will be added to the password: `SecretPasswordr5sa3MJL65WbS2Y0qx43S1IW9PnIj2d43awK1Y3Q`
-
-This new string will be hashed with SHA512 hash algorythm 256 times.
-
+A random string (the salt) will be added to the password: `SecretPasswordr5sa3MJL65WbS2Y0qx43S1IW9PnIj2d43awK1Y3Q`  
+This new string will be hashed with SHA512 hash algorythm 256 times.  
 The resulting hash and the used salt is returned as one string seperated by `$`.
 
 Discussions
