@@ -18,15 +18,13 @@
 Func _HashPassword($inPwd, $inSalt = "")
 	Local Const $CALG_SHA512 = 0x0000800e
 	Local $hAlg = $CALG_SHA512
-	Local $aChar[3], $sSalt, $sHash, $sPassword, $i
+	Local $sSalt, $sHash, $sPassword, $i
 	Local $sPassword = StringStripWS($inPwd, 1 + 2)
+	Local $aSalt=StringSplit("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", "")
 
 	If $inSalt = "" Then
 		For $i = 1 To 40
-			$aChar[0] = Chr(Random(65, 90, 1)) ;A-Z
-			$aChar[1] = Chr(Random(97, 122, 1)) ;a-z
-			$aChar[2] = Chr(Random(48, 57, 1)) ;0-9
-			$sSalt &= $aChar[Random(0, 2, 1)]
+			$sSalt &= $aSalt[Random(1, $aSalt[0], 1)]
 		Next
 	Else
 		$sSalt = $inSalt
