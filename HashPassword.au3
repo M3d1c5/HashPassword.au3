@@ -9,11 +9,11 @@
 ;                  $inSalt - Salt to to use (optional)
 ; Return values .: Success - Returns hash and salt as string seperated by "$"
 ;                  Failure - Returns -1
-; Author ........: Christian Bendt (M3d1c5)
+; Author ........: Christian Bendt (M3d1c5) mail@m3d1c5.org
 ; Modified ......:
 ; Remarks .......: SHA-512 only works with Windows XP SP3 and later
 ; Related .......: _CheckPassword
-; Link ..........: https://github.com/M3d1c5/HashPassword.au3
+; Link ..........: http://m3d1c5.github.com/HashPassword.au3
 ;===============================================================================
 Func _HashPassword($inPwd, $inSalt = "")
 	Local Const $CALG_SHA512 = 0x0000800e
@@ -56,11 +56,11 @@ EndFunc   ;==>_HashPassword
 ;                  $inHash - Hash and salt seperated by "$" to check password with
 ; Return values .: Success - Returns True
 ;                  Failure - Returns False
-; Author ........: Christian Bendt (M3d1c5)
+; Author ........: Christian Bendt (M3d1c5) mail@m3d1c5.org
 ; Modified ......:
 ; Remarks .......:
 ; Related .......: _HashPassword
-; Link ..........: https://github.com/M3d1c5/HashPassword.au3
+; Link ..........: http://m3d1c5.github.com/HashPassword.au3
 ;===============================================================================
 Func _CheckPassword($inPwd, $inHash)
 	Local $sHash, $sSalt
