@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Hashpassword.au3 by M3d1c5</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Hashpassword.au3</h1>
+        <p>Salt, hash and check passwords using SHA-512</p>
+
+        <p class="view"><a href="https://github.com/M3d1c5/HashPassword.au3">View the Project on GitHub <small>M3d1c5/HashPassword.au3</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/M3d1c5/HashPassword.au3/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/M3d1c5/HashPassword.au3/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/M3d1c5/HashPassword.au3">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>HashPassword.au3</h1>
+
+<p>An AutoIt UDF to salt, hash and check passwords.</p>
+
+<h2>Installation</h2>
+
+<p>Copy the file <code>HashPassword.au3</code> to the directory of your script.</p>
+
+<h2>Usage</h2>
+
+<pre><code>#include "HashPassword.au3"
+Local $Password = InputBox("HashPassword", "Enter the password to hash", "", "*")
+Local $Hash = _HashPassword($Password)
+MsgBox(0, "HashPassword", "The Hash: " &amp; $Hash)
+Local $RePassword = InputBox("HashPassword", "Enter the password to check it against the hash", "", "*")
+If _CheckPassword($RePassword, $Hash) = True Then
+    MsgBox(0, "HashPassword", "Password is correct!")
+Else
+    MsgBox(0, "HashPassword", "Password is not correct!")
+EndIf
+</code></pre>
+
+<h2>How it works</h2>
+
+<p>A random string (the salt) will be added to the password: <code>SecretPasswordr5sa3MJL65WbS2Y0qx43S1IW9PnIj2d43awK1Y3Q</code><br>
+This new string will be hashed with SHA512 hash algorythm 256 times.<br>
+The resulting hash and the used salt is returned as one string seperated by <code>$</code>.</p>
+
+<h2>Discussions</h2>
+
+<p>You can join the discussion on <a href="http://www.autoit.de/index.php?page=Thread&amp;threadID=32128">AutoIt.de</a>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/M3d1c5">M3d1c5</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
